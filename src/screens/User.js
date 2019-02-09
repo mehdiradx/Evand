@@ -13,6 +13,18 @@ import InputField from "../components/InputField";
 
 import user from "../img/user.png";
 
+const data = [
+  {
+    value: "Online"
+  },
+  {
+    value: "Offline"
+  },
+  {
+    value: "Unknown"
+  }
+];
+
 class User extends Component {
   static navigationOptions = ({ navigation }) => ({
     headerStyle: transparentHeaderStyle,
@@ -20,7 +32,7 @@ class User extends Component {
   });
 
   state = {
-    id: 0,
+    id: -1,
     name: "Enter name ...",
     job: "Enter job ...",
     age: "Enter user age ...",
@@ -72,17 +84,6 @@ class User extends Component {
   }
   render() {
     const { name, job, age, status } = this.state;
-    let data = [
-      {
-        value: "Online"
-      },
-      {
-        value: "Offline"
-      },
-      {
-        value: "Unknown"
-      }
-    ];
     return (
       <View style={styles.wrapper}>
         <InputField
@@ -125,9 +126,7 @@ class User extends Component {
 }
 
 const styles = StyleSheet.create({
-  wrapper: {
-    // marginTop: 0
-  },
+  wrapper: {},
   submitButton: {
     height: 50,
     backgroundColor: "#0984e3",

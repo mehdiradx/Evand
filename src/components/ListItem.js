@@ -12,7 +12,7 @@ import {
 import ListItemStatus from "./ListItemStatus";
 import ListItemDesc from "./ListItemDesc";
 
-export default class RoundedButton extends Component {
+export default class ListItem extends Component {
   render() {
     const { name, job, age, status, handleOnPress } = this.props;
     return (
@@ -32,12 +32,12 @@ export default class RoundedButton extends Component {
   }
 }
 
-RoundedButton.propTypes = {
+ListItem.propTypes = {
   name: PropTypes.string.isRequired,
   job: PropTypes.string,
   handleOnPress: PropTypes.func.isRequired,
   age: PropTypes.number,
-  status: PropTypes.number
+  status: PropTypes.string
 };
 
 const styles = StyleSheet.create({
