@@ -19,8 +19,8 @@ export default class RoundedButton extends Component {
       <TouchableOpacity onPress={handleOnPress}>
         <View style={styles.listWrapper}>
           <View style={styles.listRow}>
-            <ListItemStatus status={status} />
             <Text style={styles.nameTextStyle}>{name}</Text>
+            <ListItemStatus status={status} />
           </View>
           <View style={styles.listRow}>
             <ListItemDesc>job: {job}</ListItemDesc>

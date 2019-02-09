@@ -2,12 +2,11 @@ import React from "react";
 import { View, Text, StyleSheet } from "react-native";
 
 export default function ListItemStatus(props) {
-  const statusText = props.status ? "on" : "off";
-  const backgroundColor = props.status == 1 ? "#00dd00" : "#dd0000";
-  if (props.status != -1) {
+  const backgroundColor = props.status == "Online" ? "#00dd00" : "#dd0000";
+  if (props.status != "Unknown") {
     return (
       <View style={[styles.wrapper, { backgroundColor }]}>
-        <Text style={styles.textStyle}>{statusText}</Text>
+        <Text style={styles.textStyle}>{props.status}</Text>
       </View>
     );
   }
@@ -16,11 +15,10 @@ export default function ListItemStatus(props) {
 
 const styles = StyleSheet.create({
   wrapper: {
-    width: 25,
     height: 25,
     borderRadius: 10,
     padding: 2,
-    marginRight: 10
+    marginLeft: 10
   },
   textStyle: { color: "#fff", textAlign: "center", fontWeight: "bold" }
 });

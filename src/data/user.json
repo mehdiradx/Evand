@@ -4,48 +4,20 @@
     "name": "dina safoori",
     "job": "designer",
     "age": 23,
-    "status": 1
+    "status": "Online"
   },
   {
     "id": 1,
     "name": "ali mohseni",
     "job": "programmer",
     "age": 10,
-    "status": 1
+    "status": "Offline"
   },
   {
     "id": 2,
     "name": "reza alavi",
     "job": "dentist",
     "age": 13,
-    "status": 0
-  },
-  {
-    "id": 3,
-    "name": "negar farkhonde",
-    "job": "carpenter",
-    "age": 45,
-    "status": -1
-  },
-  {
-    "id": 4,
-    "name": "leila hojati",
-    "job": "programmer",
-    "age": 12,
-    "status": 1
-  },
-  {
-    "id": 5,
-    "name": "asghar hemmati",
-    "job": "unemployee",
-    "age": 22,
-    "status": 1
-  },
-  {
-    "id": 6,
-    "name": "neda zargande",
-    "job": "teacher",
-    "age": 31,
-    "status": 0
+    "status": "Unknown"
   }
 ]

@@ -7,6 +7,7 @@ import colors from "../styles/colors";
 import transparentHeaderStyle from "../styles/navigation";
 
 import { View, StyleSheet, Text, TouchableOpacity } from "react-native";
+import { Dropdown } from "react-native-material-dropdown";
 
 import InputField from "../components/InputField";
 
@@ -23,7 +24,7 @@ class User extends Component {
     name: "Enter name ...",
     job: "Enter job ...",
     age: "Enter user age ...",
-    status: ""
+    status: "Unknown"
   };
   setName = name => {
     this.setState({ name });
@@ -34,11 +35,14 @@ class User extends Component {
   setAge = age => {
     this.setState({ age });
   };
+  setStatus = status => {
+    this.setState({ status });
+  };
   handlePress = () => {
     const { userList } = this.props;
     const { state } = this;
-    if (this.state.id == 0) {
-      this.setState({ id: userList.length + 1 }, () =>
+    if (this.state.id == -1) {
+      this.setState({ id: userList.length }, () =>
         this.props.Add2List(this.state)
       );
     } else {
@@ -67,7 +71,18 @@ class User extends Component {
     }
   }
   render() {
-    const { name, job, age } = this.state;
+    const { name, job, age, status } = this.state;
+    let data = [
+      {
+        value: "Online"
+      },
+      {
+        value: "Offline"
+      },
+      {
+        value: "Unknown"
+      }
+    ];
     return (
       <View style={styles.wrapper}>
         <InputField
@@ -91,6 +106,14 @@ class User extends Component {
           label={"age:"}
           image={user}
         />
+        <View style={styles.dropdown}>
+          <Dropdown
+            label="Status"
+            data={data}
+            value={status}
+            onChangeText={this.setStatus}
+          />
+        </View>
         <TouchableOpacity onPress={this.handlePress}>
           <View style={styles.submitButton}>
             <Text style={styles.submitText}>Submit</Text>
@@ -103,7 +126,7 @@ class User extends Component {
 
 const styles = StyleSheet.create({
   wrapper: {
-    marginTop: 100
+    // marginTop: 0
   },
   submitButton: {
     height: 50,
@@ -115,6 +138,10 @@ const styles = StyleSheet.create({
   submitText: {
     color: "#fff",
     fontSize: 20
+  },
+  dropdown: {
+    marginLeft: 10,
+    width: "90%"
   }
 });
 
