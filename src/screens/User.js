@@ -58,9 +58,15 @@ class User extends Component {
         this.props.Add2List(this.state)
       );
     } else {
-      const filteredList = userList.filter(item => item.id !== this.state.id);
-      const newList = [state].concat(filteredList);
-      this.props.EditList(newList);
+      let myuserList = userList.groups;
+      const groups = Object.keys(myuserList).map(key => myuserList[key]);
+      const filteredList = groups.map((list, index) => {
+        // console.log("------", Object.keys(list));
+        return [list.filter(item => item.id == this.state.id), index];
+      });
+      console.log("filteredList", filteredList);
+
+      // this.props.EditList(newList);
     }
     this.props.navigation.navigate("UserList");
   };
